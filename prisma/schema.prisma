@@ -1,0 +1,77 @@
+// MediBrief data model — stub for Milestone 1.
+// Fields will be expanded as OCR, AI analysis, and sharing features are built.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  reports   Report[]
+}
+
+model Report {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  title       String?
+  status      String    @default("uploaded") // uploaded | processing | analyzed | failed
+  createdAt   DateTime  @default(now())
+  files       ReportFile[]
+  findings    Finding[]
+  summary     Summary?
+  shareLogs   ShareLog[]
+}
+
+model ReportFile {
+  id         String   @id @default(cuid())
+  reportId   String
+  report     Report   @relation(fields: [reportId], references: [id])
+  fileName   String
+  fileType   String
+  storageUrl String
+  ocrText    String?
+  uploadedAt DateTime @default(now())
+}
+
+model Finding {
+  id             String  @id @default(cuid())
+  reportId       String
+  report         Report  @relation(fields: [reportId], references: [id])
+  labName        String
+  value          String
+  unit           String?
+  referenceRange String?
+  isAbnormal     Boolean @default(false)
+}
+
+model Summary {
+  id                  String   @id @default(cuid())
+  reportId            String   @unique
+  report              Report   @relation(fields: [reportId], references: [id])
+  plainLanguageText   String
+  specialistSuggested String?
+  disclaimer          String   @default("This summary is informational only and is not a medical diagnosis.")
+  createdAt           DateTime @default(now())
+}
+
+model ShareLog {
+  id         String   @id @default(cuid())
+  reportId   String
+  report     Report   @relation(fields: [reportId], references: [id])
+  channel    String // email | whatsapp
+  recipient  String
+  status     String   @default("pending") // pending | sent | failed
+  sentAt     DateTime?
+  createdAt  DateTime @default(now())
+}
