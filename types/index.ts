@@ -5,6 +5,13 @@
 // successful `prisma generate` just to type-check, and structural typing
 // means real Prisma query results satisfy these interfaces without casts.
 
+// Prisma schema note: status/channel are plain `String` columns (not Prisma
+// `enum`s), so Prisma's generated types for them are `string`, not a
+// literal union. These aliases document the actual values in use, but the
+// record interfaces below use `string` for those fields — a stricter
+// union there would reject real Prisma query results (as happened: this
+// mismatch only surfaces once `prisma generate` actually runs against the
+// real schema, which didn't happen in earlier local type-checking).
 export type ReportStatus = "uploaded" | "processing" | "analyzed" | "failed";
 export type ShareChannel = "email" | "whatsapp";
 export type ShareStatus = "pending" | "sent" | "failed";
@@ -41,9 +48,9 @@ export interface SummaryRecord {
 export interface ShareLogRecord {
   id: string;
   reportId: string;
-  channel: ShareChannel;
+  channel: string;
   recipient: string;
-  status: ShareStatus;
+  status: string;
   sentAt: Date | null;
   createdAt: Date;
 }
@@ -52,7 +59,7 @@ export interface ReportRecord {
   id: string;
   userId: string;
   title: string | null;
-  status: ReportStatus;
+  status: string;
   createdAt: Date;
 }
 
