@@ -2,10 +2,10 @@
 
 > Upload a medical report — even a handwritten one. Get a plain-language explanation of what it means, what's out of range, and who to see about it, in seconds instead of days.
 
-**Live app:** `[PASTE YOUR VERCEL URL HERE, e.g. https://medibrief.vercel.app]`
-**GitHub repo:** `[PASTE YOUR PUBLIC REPO URL HERE]`
-**Design source (Google Stitch):** `[PASTE YOUR STITCH PROJECT/SHARE LINK HERE]`
-**Automation workflow (n8n):** `[PASTE YOUR N8N WORKFLOW SHARE LINK / WEBHOOK URL HERE]`
+**Live app:** `[https://medi-brief-a-health-intelligence-sy.vercel.app/]`
+**GitHub repo:** `[https://github.com/lethaltype/MediBrief-A-Health-Intelligence-System]`
+**Design source (Google Stitch):** `[https://stitch.withgoogle.com/preview/2714666557696117701?node-id=796c6d0f9f7c4d488de00259dd61b710]`
+**Automation workflow (n8n):** `[https://lethaltype.app.n8n.cloud/webhook/medibrief-share]`
 
 ---
 
@@ -66,14 +66,15 @@ The splash screen is the first thing anyone sees at the live URL — a quick ori
 
 ![Splash screen](./screenshots/flash_screen.png)
 
-### Step 2 — Creating an account
-A new user signs up with name, email, and password.
+### Step 2 — Creating an account with the email which is already in database
+A new user signs up with name, email, and password. If the email already exsits, it flags as you can see, it says, An account with this email alread exsits.
 
 ![Sign up](./screenshots/sign_up_authentication.png)
 
-Once submitted, the account is created and the session is established immediately — no separate email verification step blocking access.
+**2a. User enters new email and account is created successfully**
+Once submitted with a new email, the account is created and the session is established immediately — no separate email verification step blocking access.
 
-![Sign up successful](./screenshots/sign_up_successful_authentication.png)
+![Sign up successful](./screenshots/sign_up_successfull_authentication.png)
 
 ### Step 3 — First look at the dashboard
 Immediately after authenticating, the user lands on the dashboard: upload zone, stats, and (once reports exist) the recent reports list and health insights sidebar.
@@ -95,7 +96,7 @@ This is the step I most wanted to prove works, not just claim: MediBrief reading
 
 **6a. The source document** — a real handwritten report, photographed as-is:
 
-![Handwritten report source](./screenshots/handwritten_report.png)
+![Handwritten report source](./screenshots/handwritten%20report.png)
 
 **6b. Live analysis in progress** — the same background-processing pipeline as any other upload, with a real animated progress indicator:
 
@@ -103,7 +104,7 @@ This is the step I most wanted to prove works, not just claim: MediBrief reading
 
 **6c. Correctly read and analyzed** — the handwriting is transcribed and turned into the same structured findings and AI summary as a typed report:
 
-![Handwritten report detail](./screenshots/handwritten%20report.png)
+![Handwritten report detail](./screenshots/handwritten_report.png)
 
 **6d. Exported as a PDF** — the same handwritten report's findings and summary, packaged into a real downloadable PDF:
 
@@ -309,7 +310,7 @@ Next.js 14 (App Router, TypeScript) -- deployed on Vercel
 
 ## 8. On Latency — What It Actually Is, and What I Did About It
 
-A fresh page load or the very first navigation to a given screen can take roughly **3-4 seconds** — this is a real, measured characteristic of the app, and I want to explain exactly why rather than leave it unexplained.
+A fresh page load or the very first navigation to a given screen can take roughly **2 seconds** — this is a real, measured characteristic of the app, and I want to explain exactly why rather than leave it unexplained.
 
 **What causes those first few seconds:**
 1. **Two real network calls to Google's Gemini API per upload** — one for OCR, one for the plain-language summary. This is genuine model inference over a network, not an instant stub.
@@ -347,7 +348,6 @@ I'm planning to keep developing MediBrief past this submission, so this roadmap 
 - [ ] Wire real notification delivery (email/push) behind the existing Settings UI
 - [ ] Implement two-factor authentication as part of hardening the app for a real launch
 - [ ] Separate development and production databases
-- [ ] `[ADD ANY OTHER IDEAS OF YOUR OWN HERE]`
 
 ---
 
@@ -358,15 +358,15 @@ Section 3 walks through these in narrative order; this table is a flat quick-ref
 | Screen | Screenshot |
 |---|---|
 | Splash screen | ![Splash screen](./screenshots/flash_screen.png) |
-| Sign up | ![Sign up](./screenshots/sign_up_authentication.png) |
-| Sign up successful | ![Sign up successful](./screenshots/sign_up_successful_authentication.png) |
+| Sign up | ![Sign up Authentication](./screenshots/sign_up_authentication.png) |
+| Sign up successful | ![Sign up successful](./screenshots/sign_up_successfull_authentication.png) |
 | Dashboard | ![Dashboard](./screenshots/dashboard.png) |
 | All reports | ![All reports](./screenshots/all_reports.png) |
 | Sample uploaded report (typed) | ![Typed report source](./screenshots/computer_lab_1.png) |
 | Report detail (typed report, analyzed) | ![Typed report detail](./screenshots/computer_lab_1_report.png) |
-| Sample uploaded report (handwritten) | ![Handwritten report source](./screenshots/handwritten_report.png) |
+| Sample uploaded report (handwritten) | ![Handwritten report source](./screenshots/handwritten%20report.png) |
 | Handwritten report — analyzing in progress | ![Handwritten report analyzing](./screenshots/handwritten_report_analyzing_bar.png) |
-| Handwritten report — read and analyzed correctly | ![Handwritten report detail](./screenshots/handwritten%20report.png) |
+| Handwritten report — read and analyzed correctly | ![Handwritten report detail](./screenshots/handwritten_report.png) |
 | Handwritten report — PDF export | ![Handwritten report PDF export](./screenshots/handwritten_report_download_pdf.png) |
 | Dark mode | ![Dark mode](./screenshots/dark_mode.png) |
 | Settings | ![Settings](./screenshots/settings.png) |
@@ -375,7 +375,6 @@ Section 3 walks through these in narrative order; this table is a flat quick-ref
 | Shared report received in Gmail | ![Report received in Gmail](./screenshots/sent_report_in_gmail.png) |
 | n8n automation workflow | ![n8n workflow](./screenshots/n8n_wprkflow.png) |
 
-*(File extensions above assume `.png` — adjust to match your actual saved file types if different, e.g. `.jpg` for photographed reports.)*
 
 ---
 
@@ -432,4 +431,4 @@ MediBrief's AI-generated content is informational only. It is not a medical diag
 
 ## 14. Author
 
-`[YOUR NAME]` -- built for `[COURSE NAME]`, submitted `[DATE]`.
+`[Muhammad Jamshaid Rasheed]` -- built for `[ACT AI Skillbridge]`, submitted `[26/07/2026]`.
