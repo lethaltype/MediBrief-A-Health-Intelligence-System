@@ -2,7 +2,7 @@
 
 > Upload a medical report — even a handwritten one. Get a plain-language explanation of what it means, what's out of range, and who to see about it, in seconds instead of days.
 
-**Live app:** `[https://medi-brief-a-health-intelligence-sy.vercel.app/]`<br>
+**Live app:** https://medi-brief-a-health-intelligence-sy.vercel.app/<br>
 **GitHub repo:** `[https://github.com/lethaltype/MediBrief-A-Health-Intelligence-System]`<br>
 **Design source (Google Stitch):** `[https://stitch.withgoogle.com/preview/2714666557696117701?node-id=796c6d0f9f7c4d488de00259dd61b710]`<br>
 **Automation workflow (n8n):** `[https://lethaltype.app.n8n.cloud/webhook/medibrief-share]`
