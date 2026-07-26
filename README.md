@@ -2,16 +2,16 @@
 
 > Upload a medical report — even a handwritten one. Get a plain-language explanation of what it means, what's out of range, and who to see about it, in seconds instead of days.
 
-**Live app:** `[https://medi-brief-a-health-intelligence-sy.vercel.app/]`
-**GitHub repo:** `[https://github.com/lethaltype/MediBrief-A-Health-Intelligence-System]`
-**Design source (Google Stitch):** `[https://stitch.withgoogle.com/preview/2714666557696117701?node-id=796c6d0f9f7c4d488de00259dd61b710]`
+**Live app:** `[https://medi-brief-a-health-intelligence-sy.vercel.app/]`<br>
+**GitHub repo:** `[https://github.com/lethaltype/MediBrief-A-Health-Intelligence-System]`<br>
+**Design source (Google Stitch):** `[https://stitch.withgoogle.com/preview/2714666557696117701?node-id=796c6d0f9f7c4d488de00259dd61b710]`<br>
 **Automation workflow (n8n):** `[https://lethaltype.app.n8n.cloud/webhook/medibrief-share]`
 
 ---
 
 ## 1. The Problem — and Who Actually Has It
 
-This app didn't start as a class assignment idea — it started at home.
+This app didn't start as a class project idea — it started at home.
 
 People around me have asked me the same question more times than I can count, holding up a lab report: *"beta, ye report kya keh rahi hai?"* — "child, what does this report say?" I'm not a doctor. So every single time, the routine was the same: photograph the report, send it to a doctor I knew, and wait — sometimes hours, sometimes days — for a reply to something that was often just a cholesterol number or a blood count sitting slightly outside a reference range.
 
@@ -67,7 +67,7 @@ The splash screen is the first thing anyone sees at the live URL — a quick ori
 ![Splash screen](./screenshots/flash_screen.png)
 
 ### Step 2 — Creating an account with the email which is already in database
-A new user signs up with name, email, and password. If the email already exsits, it flags as you can see, it says, An account with this email alread exsits.
+A new user signs up with name, email, and password. If the email already exsits, it flags as you can see, it says, An account with this email already exsits.
 
 ![Sign up](./screenshots/sign_up_authentication.png)
 
