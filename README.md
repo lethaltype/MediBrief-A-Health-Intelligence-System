@@ -378,7 +378,25 @@ Section 3 walks through these in narrative order; this table is a flat quick-ref
 
 ---
 
-## 12. How to Run This Locally
+## 12. How to Run — Directly via the Live App (No Setup Needed)
+
+The fastest way to actually use MediBrief is the live deployment — no cloning, no environment variables, no database setup. This is the complete roadmap from opening the link to seeing a full analyzed report.
+
+1. **Open the live app:** the URL at the top of this README.
+2. **Create an account:** click **Create Account** on the splash screen, enter a name, email, and password, and submit. There's no email verification step blocking access — you're signed in immediately.
+3. **Land on the Dashboard:** you'll see the upload panel, your stats (both zero for a new account), and an empty state where your reports will appear.
+4. **Upload a report:** drag and drop a PDF, JPG, or PNG onto the upload panel — a typed lab report, a scanned document, or even a handwritten one all work, since OCR runs through Gemini's vision model rather than a traditional scanner-only OCR engine.
+5. **Watch it process:** an "Analyzing" card appears immediately with a live progress indicator. This takes roughly 3-4 seconds, since it's making real calls to Gemini for OCR and analysis, not a fake spinner (see Section 8 for the full explanation).
+6. **View the result:** once processing finishes, click into the report to see the full extracted text, the AI-generated plain-language summary, any abnormal findings flagged separately from normal ones, and a specialist suggestion when relevant.
+7. **Check History & Trends:** upload a second report with a repeated lab value, and the History tab will render an actual trend line comparing the two over time.
+8. **Try sharing:** from a report's detail page, open the share modal, enter a recipient email, and send — this goes out for real through the connected n8n automation (see Section 6).
+9. **Export a PDF:** from the same report detail page, download a real generated PDF containing the summary, findings, and disclaimer.
+10. **Explore Settings:** update your name/email, change your password, and toggle dark mode — every screen in the app fully re-themes, not just a partial toggle.
+11. **Sign out and back in:** confirms the session persists correctly and your reports are still there exactly as you left them.
+
+That's the complete usage roadmap, start to finish, entirely on the live deployment — the local setup instructions below are only necessary if you want to run or modify the code yourself.
+
+## 13. How to Run This Locally
 
 ### Prerequisites
 - Node.js 18+
@@ -423,12 +441,12 @@ Full step-by-step deployment notes are in `DEPLOYMENT.md` in this repo.
 
 ---
 
-## 13. Disclaimer
+## 14. Disclaimer
 
 MediBrief's AI-generated content is informational only. It is not a medical diagnosis and does not replace advice from a qualified healthcare professional. This is a student project and should not be relied upon for real medical decisions.
 
 ---
 
-## 14. Author
+## 15. Author
 
 `[Muhammad Jamshaid Rasheed]` -- built for `[ACT AI Skillbridge]`, submitted `[26/07/2026]`.
